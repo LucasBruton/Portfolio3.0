@@ -8,7 +8,7 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
-$brand-primary: #FF9000 !default;
+$brand-primary: #F26659 !default;
 
 $brand-white: #fff;
 $brand-black: #000;
@@ -21,6 +21,7 @@ $brand-overlay-color: #4c4a8a;
 $brand-bg-color: $brand-white;
 
 $brand-bg-dark: #2F3C4F;
+$brand-blue: #8ca9d3;
 
 $input-border-focus:  $brand-primary !default;
 $form-group-margin-bottom:       30px !default;
@@ -284,6 +285,9 @@ h1, h2, h3, h4, h5, h6, figure {
 			li {
 				a {
 					color: $brand-white;
+					&:hover {
+						color: $brand-blue;
+					}
 					i {
 						font-size: 30px;
 					}
@@ -402,11 +406,20 @@ h1, h2, h3, h4, h5, h6, figure {
 			float: left;
 			color: $brand-black;
 			font-weight: bold;
+			line-height: 20px;
 		}
 		.second-block{
 			width: 60%;
 			display: inline-block;
 			color: rgba($brand-black,.5);
+			line-height: 20px;
+
+			a {
+				&:hover {
+					text-decoration: underline;
+					@include transition(1s);
+				}
+			}
 		}
 	}
 }
@@ -526,7 +539,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 	> li{
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		position: relative;
 		@media screen and (max-width: $screen-sm) {
 			margin-bottom: 4em;	
@@ -625,6 +638,22 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline-body > p,
 .timeline-body > ul {
     margin-bottom: 0;
+}
+
+.timeline-body  ul {
+	list-style-position: inside;
+	list-style: disc;
+
+	li {
+		span {
+			position: relative;
+			right: -10px;
+		}
+	}
+}
+
+.timeline-body .left-text {
+	text-align: left;
 }
 
 .timeline-body > p + p {
