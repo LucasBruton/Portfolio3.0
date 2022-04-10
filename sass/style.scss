@@ -297,7 +297,6 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-
 #fh5co-features {
 	background: $brand-primary;
 	h2 {
@@ -305,6 +304,23 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 	.services-padding{
 		padding: 7em 0;
+	}
+	.flex-container {
+
+		display: flex;
+		justify-content: space-between;
+		@media screen and (max-width: $screen-md) {
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.flex-content {
+			display: flex;
+			justify-content: center;
+			@media screen and (max-width: $screen-md) {
+				margin-bottom: 20px;
+			}
+		}
 	}
 	.feature-left {
 		margin-bottom: 40px;
@@ -387,7 +403,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .info{
 	margin: 0;
 	padding: 0;
-	width: 90%;
+	width: 100%;
 	float: left;
 	@media screen and (max-width: $screen-sm) {
 		margin-bottom: 3em;
@@ -401,7 +417,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			padding-top: 0;
 		}
 		.first-block{
-			width: 40%;
+			width: 25%;
 			display: inline-block;
 			float: left;
 			color: $brand-black;
@@ -409,7 +425,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			line-height: 20px;
 		}
 		.second-block{
-			width: 60%;
+			width: 75%;
 			display: inline-block;
 			color: rgba($brand-black,.5);
 			line-height: 20px;
@@ -510,7 +526,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		background-color: lighten($brand-black,90%);
 		left: 50%;
 		margin-left: 0px;
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-left: -64px;
 		}
 		@media screen and (max-width: $screen-xs) {
@@ -518,7 +534,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 	.timeline-heading{
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-bottom: 30px;
 		}
 		>div{
@@ -531,7 +547,7 @@ h1, h2, h3, h4, h5, h6, figure {
 				font-weight: bold;
 				background: lighten($brand-black,90%);
 				@include border-radius(4px);
-				@media screen and (max-width: $screen-sm) {
+				@media screen and (max-width: $screen-md) {
 					float: left;
 					margin-bottom: 0;
 				}
@@ -541,7 +557,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	> li{
 		margin-bottom: 30px;
 		position: relative;
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-bottom: 4em;	
 		}
 		&:before, &:after{
@@ -557,7 +573,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			margin-bottom: 0;
 			position: relative;
 			@include border-radius(4px);
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				width: 85% !important;
 			}
 			@media screen and (max-width: $screen-xs) {
@@ -585,7 +601,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			z-index: 100;
 			display: table;
 			@include border-radius(50%);
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				margin-left: -10px !important;
 			}
 			@media screen and (max-width: $screen-md) {
@@ -600,7 +616,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 		&.timeline-unverted{
 			text-align: right;
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				text-align: left;
 			}
 		}
@@ -647,7 +663,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	li {
 		span {
 			position: relative;
-			right: -10px;
+			right: -5px;
 		}
 	}
 }
@@ -878,6 +894,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	@media screen and (max-width: $screen-sm) {
 		width: 100%;
 	}
+
 	.blog-bg{
 		display: block;
 		width: 100%;
@@ -893,13 +910,27 @@ h1, h2, h3, h4, h5, h6, figure {
 			height: 270px;
 		}
 	}
+	iframe {
+		width: 100%;;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@media screen and(max-width: $screen-sm){
+			height: 400px;
+		}
+		@media screen and(max-width: $screen-xs){
+			height: 270px;
+		}
+	}
 	.blog-text {
 		margin-bottom: 30px;
 		position: relative;
 		width: 100%;
 		padding: 30px;
 		float: left;
-		background: $brand-white;
+		background: $brand-primary;
+		color: $brand-white;
 
 		-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
 		-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
@@ -911,16 +942,25 @@ h1, h2, h3, h4, h5, h6, figure {
 			padding: 10px;
 		}
 
+		& a {
+			color: $brand-white;
+		}
+
+		.download {
+			text-decoration: underline;
+			margin-bottom: 10px;
+		}
+
 		span{
 			display: inline-block;
 			margin-bottom: 20px;
 			font-size: 18px !important;
-			color: rgba($brand-black,.3);
+			color: rgba($brand-white,.7);
 		}
 		.stuff{
 			margin: 0;
 			padding: 0;
-			border-top: 1px solid rgba($brand-black,.05);
+			border-top: 1px solid rgba($brand-white,.3);
 			padding-top: 20px;
 			li{
 				list-style: none;
@@ -934,9 +974,6 @@ h1, h2, h3, h4, h5, h6, figure {
 				}
 				&:last-child{
 					float: right;
-					a{
-						color: $brand-black;
-					}
 					i{
 						padding-right: 0;
 						padding-left: 10px;
@@ -954,7 +991,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			margin-bottom: 20px;
 			line-height: 1.5;
 			a{
-				color: rgba($brand-black,1);
+				color: rgba($brand-white,1);
 			}
 		}
 	}
