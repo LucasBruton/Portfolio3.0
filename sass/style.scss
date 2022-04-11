@@ -1,6 +1,6 @@
-$font-primary: 'Space Mono', Arial, serif;
-$font-secondary: 'Kaushan Script', cursive;
-
+$font-primary:  'Varela', sans-serif;
+$font-secondary:  'Montserrat', sans-serif;
+$font-name: 'Kaushan Script', cursive;
 
 
 // Overrides
@@ -8,7 +8,7 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
-$brand-primary: #FF9000 !default;
+$brand-primary: #F26659 !default;
 
 $brand-white: #fff;
 $brand-black: #000;
@@ -21,6 +21,7 @@ $brand-overlay-color: #4c4a8a;
 $brand-bg-color: $brand-white;
 
 $brand-bg-dark: #2F3C4F;
+$brand-blue: #8ca9d3;
 
 $input-border-focus:  $brand-primary !default;
 $form-group-margin-bottom:       30px !default;
@@ -46,7 +47,7 @@ $form-group-margin-bottom:       30px !default;
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
-	*display:inline;
+	display:inline;
 }
 
 @mixin border-radius($radius) {
@@ -154,7 +155,7 @@ p {
 
 h1, h2, h3, h4, h5, h6, figure {
 	color: $brand-black;
-	font-family: $font-primary;
+	font-family: $font-secondary;
 	font-weight: 400;
 	margin: 0 0 20px 0;
 }
@@ -203,7 +204,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			color: rgba(255,255,255,1);
 		}
 		h1 {
-			font-family: $font-secondary;
+			font-family: $font-name;
 			margin-bottom: 30px;
 			font-size: 50px;
 			line-height: 1.3;
@@ -284,6 +285,9 @@ h1, h2, h3, h4, h5, h6, figure {
 			li {
 				a {
 					color: $brand-white;
+					&:hover {
+						color: $brand-blue;
+					}
 					i {
 						font-size: 30px;
 					}
@@ -293,7 +297,6 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-
 #fh5co-features {
 	background: $brand-primary;
 	h2 {
@@ -301,6 +304,30 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 	.services-padding{
 		padding: 7em 0;
+	}
+	.flex-container {
+		justify-content: space-around;
+	}
+	.flex-container-1-content {
+		justify-content: center;
+	}
+	.flex-container-1-content,
+	.flex-container {
+
+		display: flex;
+		
+		@media screen and (max-width: $screen-md) {
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.flex-content {
+			display: flex;
+			justify-content: center;
+			@media screen and (max-width: $screen-md) {
+				margin-bottom: 20px;
+			}
+		}
 	}
 	.feature-left {
 		margin-bottom: 40px;
@@ -349,7 +376,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-about,
 #fh5co-resume,
-#fh5co-skills,
 #fh5co-started,
 #fh5co-work,
 #fh5co-blog,
@@ -383,7 +409,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .info{
 	margin: 0;
 	padding: 0;
-	width: 90%;
+	width: 100%;
 	float: left;
 	@media screen and (max-width: $screen-sm) {
 		margin-bottom: 3em;
@@ -397,16 +423,25 @@ h1, h2, h3, h4, h5, h6, figure {
 			padding-top: 0;
 		}
 		.first-block{
-			width: 40%;
+			width: 25%;
 			display: inline-block;
 			float: left;
 			color: $brand-black;
 			font-weight: bold;
+			line-height: 20px;
 		}
 		.second-block{
-			width: 60%;
+			width: 75%;
 			display: inline-block;
 			color: rgba($brand-black,.5);
+			line-height: 20px;
+
+			a {
+				&:hover {
+					text-decoration: underline;
+					@include transition(1s);
+				}
+			}
 		}
 	}
 }
@@ -497,7 +532,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		background-color: lighten($brand-black,90%);
 		left: 50%;
 		margin-left: 0px;
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-left: -64px;
 		}
 		@media screen and (max-width: $screen-xs) {
@@ -505,7 +540,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 	.timeline-heading{
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-bottom: 30px;
 		}
 		>div{
@@ -518,7 +553,7 @@ h1, h2, h3, h4, h5, h6, figure {
 				font-weight: bold;
 				background: lighten($brand-black,90%);
 				@include border-radius(4px);
-				@media screen and (max-width: $screen-sm) {
+				@media screen and (max-width: $screen-md) {
 					float: left;
 					margin-bottom: 0;
 				}
@@ -526,9 +561,9 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 	}
 	> li{
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		position: relative;
-		@media screen and (max-width: $screen-sm) {
+		@media screen and (max-width: $screen-md) {
 			margin-bottom: 4em;	
 		}
 		&:before, &:after{
@@ -544,7 +579,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			margin-bottom: 0;
 			position: relative;
 			@include border-radius(4px);
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				width: 85% !important;
 			}
 			@media screen and (max-width: $screen-xs) {
@@ -572,7 +607,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			z-index: 100;
 			display: table;
 			@include border-radius(50%);
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				margin-left: -10px !important;
 			}
 			@media screen and (max-width: $screen-md) {
@@ -587,7 +622,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 		&.timeline-unverted{
 			text-align: right;
-			@media screen and (max-width: $screen-sm) {
+			@media screen and (max-width: $screen-md) {
 				text-align: left;
 			}
 		}
@@ -625,6 +660,22 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline-body > p,
 .timeline-body > ul {
     margin-bottom: 0;
+}
+
+.timeline-body  ul {
+	list-style-position: inside;
+	list-style: disc;
+
+	li {
+		span {
+			position: relative;
+			right: -5px;
+		}
+	}
+}
+
+.timeline-body .left-text {
+	text-align: left;
 }
 
 .timeline-body > p + p {
@@ -668,179 +719,6 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-//PROGRESS
-.progress-wrap{
-	width: 100%;
-	float: left;
-	margin-bottom: 10px;
-	h3{
-		font-size: 16px;
-		display: block;
-		margin-bottom: 10px;
-		float: left;
-		width: 100%;
-		.name-left{
-			float: left;
-		}
-		.value-right{
-			float: right;
-		}
-	}
-}
-.progress{
-	width: 100%;
-	float: left;
-	height: 5px;
-	box-shadow: none;
-}
-.progress-bar{
-	background-color: $brand-bg-dark;
-	height: 5px;
-	display: block;
-	box-shadow: none;
-	&.progress-bar-1{
-		background-color: #2980b9 !important;
-	}
-	&.progress-bar-2{
-		background-color: #c0392b !important;
-	}
-	&.progress-bar-3{
-		background-color: #d35400 !important;
-	}
-	&.progress-bar-4{
-		background-color: #8e44ad !important;
-	}
-	&.progress-bar-5{
-		background-color: #27ae60 !important;
-	}
-}
-
-
-// CHART
-.chart {
-  	width: 160px;
-  	height: 160px;
-  	margin: 0 auto 40px auto;
-  	position: relative;
-  	text-align: center;
-  	span {
-  		strong {
-  			display: block;
-  		}
-		position: absolute;
-		top: 50%;
-		left: 0;
-		margin-top: -30px;
-		width: 100%;
-   }
-  	canvas{
-   	position: absolute;
-   	left: 0;
-   	top: 0;
-  	}
-}
-
-// WORK
-.work{
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	position: relative;
-	height: 270px;
-	width: 100%;
-	display: table;
-	overflow: hidden;
-	@media screen and(max-width: $screen-sm){
-		height: 400px;
-	}
-	@media screen and(max-width: $screen-xs){
-		height: 270px;
-	}	
-	.desc{
-		display: table-cell;
-		vertical-align: middle;
-		height: 270px;
-		background: $brand-white;
-		opacity: 0;
-		@include transition(.3s);
-		h3{
-			font-size: 20px;
-			-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-			transition: transform 0.3s, opacity 0.3s;
-			-webkit-transform: translate3d(0, -15px, 0);
-			transform: translate3d(0, -15px, 0);
-		}
-		span{
-			display: block;
-			color: lighten($brand-black,60%);
-			font-size: 14px;
-			-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-			transition: transform 0.3s, opacity 0.3s;
-			-webkit-transform: translate3d(0, 15px, 0);
-			transform: translate3d(0, 15px, 0);
-		}
-		@media screen and(max-width: $screen-sm){
-			opacity: 1;
-			background: rgba($brand-white,.6);
-			h3{
-				-webkit-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-			}
-			span{
-				-webkit-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-			}
-		}
-	}
-	&:hover{
-		.desc{
-			opacity: 1;
-			h3{
-				-webkit-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-			}
-			span{
-				-webkit-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-			}
-		}
-	}
-}
-
-#fh5co-started {
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	position: relative;
-	float: left;
-	width: 100%;
-	.fh5co-heading {
-		margin-bottom: 0;
-		h2 {
-			color: $brand-white;
-			margin-bottom: 20px !important;
-		}
-		p{
-			color: rgba($brand-white,.8);
-		}
-	}
-
-	.btn {
-		height: 54px;
-		border: none!important;
-		background: $brand-white;
-		color: $brand-primary;
-		font-size: 16px;
-		text-transform: uppercase;
-		font-weight: 400;
-		padding-left: 50px;
-		padding-right: 50px;
-	}
-}
-
-
-//PRICING
-
 // BLOG
 .fh5co-blog{
 	width: 100%;
@@ -849,6 +727,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	@media screen and (max-width: $screen-sm) {
 		width: 100%;
 	}
+
 	.blog-bg{
 		display: block;
 		width: 100%;
@@ -864,13 +743,27 @@ h1, h2, h3, h4, h5, h6, figure {
 			height: 270px;
 		}
 	}
+	iframe {
+		width: 100%;;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@media screen and(max-width: $screen-sm){
+			height: 400px;
+		}
+		@media screen and(max-width: $screen-xs){
+			height: 270px;
+		}
+	}
 	.blog-text {
 		margin-bottom: 30px;
 		position: relative;
 		width: 100%;
 		padding: 30px;
 		float: left;
-		background: $brand-white;
+		background: $brand-primary;
+		color: $brand-white;
 
 		-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
 		-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
@@ -882,16 +775,25 @@ h1, h2, h3, h4, h5, h6, figure {
 			padding: 10px;
 		}
 
+		& a {
+			color: $brand-white;
+		}
+
+		.download {
+			text-decoration: underline;
+			margin-bottom: 10px;
+		}
+
 		span{
 			display: inline-block;
 			margin-bottom: 20px;
 			font-size: 18px !important;
-			color: rgba($brand-black,.3);
+			color: rgba($brand-white,.7);
 		}
 		.stuff{
 			margin: 0;
 			padding: 0;
-			border-top: 1px solid rgba($brand-black,.05);
+			border-top: 1px solid rgba($brand-white,.3);
 			padding-top: 20px;
 			li{
 				list-style: none;
@@ -905,9 +807,6 @@ h1, h2, h3, h4, h5, h6, figure {
 				}
 				&:last-child{
 					float: right;
-					a{
-						color: $brand-black;
-					}
 					i{
 						padding-right: 0;
 						padding-left: 10px;
@@ -925,7 +824,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			margin-bottom: 20px;
 			line-height: 1.5;
 			a{
-				color: rgba($brand-black,1);
+				color: rgba($brand-white,1);
 			}
 		}
 	}
@@ -986,6 +885,8 @@ h1, h2, h3, h4, h5, h6, figure {
 	padding: 50px 0;
 	float: left;
 	width: 100%;
+	background-color: $brand-primary;
+	color: $brand-white;
 	p {
 		&:last-child {
 			margin-bottom: 0;
