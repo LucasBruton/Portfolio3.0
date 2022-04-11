@@ -284,6 +284,12 @@ h1, h2, h3, h4, h5, h6, figure {
 			li {
 				a {
 					color: $brand-white;
+<<<<<<< Updated upstream
+=======
+					&:hover {
+						color: $brand-bg-dark;
+					}
+>>>>>>> Stashed changes
 					i {
 						font-size: 30px;
 					}
