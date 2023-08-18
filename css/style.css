@@ -681,6 +681,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline-body ul {
   list-style-position: inside;
   list-style: disc;
+  padding-left: 1em;
 }
 
 .timeline-body ul li span {
@@ -790,6 +791,18 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #fff;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
   transition: 0.3s;
+}
+
+@media screen and (min-width: 992px) {
+  .blog-description {
+    height: 380px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .blog-description {
+    height: 300px;
+  }
 }
 
 @media screen and (max-width: 768px) {
